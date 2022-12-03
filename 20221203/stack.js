@@ -13,19 +13,35 @@ class Stack {
   }
 
   // 入栈
-  push() {}
+  push(item) {
+    this.items.push(item)
+  }
+
+  // 出栈
+  pop() {
+    return this.items.pop()
+  }
 
   // 查看栈顶
   peek() {
-
+    return this.items[this.items.length - 1]
   }
 
   // 是否为空
-  isEmpty() {}
+  isEmpty() {
+    return this.items.length === 0
+  }
 
   // 栈中元素数
-  size() {}
+  size() {
+    return this.item.length
+  }
 
   // toString 放回
   toString() {}
 }
+
+// 利用栈结构的特点封装实现十进制转换为二进制的方法。
+
+
+

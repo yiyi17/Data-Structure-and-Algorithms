@@ -1,0 +1,7 @@
+{
+  "type": "module",
+  "scripts": {
+    "type": "ts-node ./type.js",
+    "ts": "ts-node ./index.ts"
+  }
+}
