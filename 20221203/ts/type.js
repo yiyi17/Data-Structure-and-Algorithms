@@ -13,6 +13,7 @@ x = 1
 // @ts-expect-error
 x = false
 
+
 // @ts-ignore
 x='str'
 
