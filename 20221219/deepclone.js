@@ -54,7 +54,7 @@ function forEach(array, iteratee) {
 
 const deepTag = [mapTag, setTag, arrayTag, objectTag, argsTag]
 
-//TODO: Reg 的拷贝方法
+// Reg 的拷贝方法
 function cloneReg(targe) {
   const reFlags = /\w*$/;
   const result = new targe.constructor(targe.source, reFlags.exec(targe));
@@ -62,12 +62,13 @@ function cloneReg(targe) {
   return result;
 }
 
-//TODO:  Symbol 的拷贝方法
+//Symbol 的拷贝方法
 function cloneSymbol(targe) {
   return Object(Symbol.prototype.valueOf.call(targe));
 }
 
-//TODO: cloneFunction
+
+// cloneFunction
 function cloneFunction(func) {
   const bodyReg = /(?<={)(.|\n)+(?=})/m;
   const paramReg = /(?<=\().+(?=\)\s+{)/;
@@ -162,7 +163,7 @@ const obj2 = clone(obj)
 console.log(obj2);
 
 
-// 方案3
+// 方案3 基础版本
 function clone2(target, map = new WeakMap()) {
 
   if (typeof target === 'object') {
