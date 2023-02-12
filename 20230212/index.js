@@ -10,7 +10,6 @@ function caculate(amount,coins) {
   for(let i = 0; i <= amount; i++) {
     for(let coin of coins) {
       if(i - coin >= 0) {
-
         dp[i] = Math.min(dp[i], dp[i-coin] + 1)
       }
     }
@@ -20,4 +19,4 @@ function caculate(amount,coins) {
 
 }
 
-console.log(caculate(7, [4,5,6]));
+console.log(caculate(7, [2,4,5,6]));
