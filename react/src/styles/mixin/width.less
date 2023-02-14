@@ -1,0 +1,25 @@
+// Width
+
+.generate-width(@n, @end, @step: 10) when (@n =< @end) {
+  @name: unit(@n);
+  .w@{name} {
+    width: @n;
+  }
+  .generate-width(@n + @step, @end, @step);
+}
+
+.generate-width-percent(@n, @end, @step: 10) when (@n =< @end) {
+  @name: unit(@n);
+  .w@{name}p {
+    width: @n;
+  }
+  .generate-width-percent(@n + @step, @end, @step);
+}
+
+.generate-width-em(@n, @end, @step: 10) when (@n =< @end) {
+  @name: unit(@n);
+  .w@{name}em {
+    width: @n;
+  }
+  .generate-width-em(@n + @step, @end, @step);
+}

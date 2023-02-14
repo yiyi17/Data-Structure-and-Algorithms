@@ -1,0 +1,31 @@
+.generate-mt(@n, @end, @step: 1) when (@n =< @end) {
+  @name: unit(@n);
+  .mt@{name} {
+    margin-top: @n;
+  }
+  .generate-mt(@n + @step, @end, @step);
+}
+
+.generate-mr(@n, @end, @step: 1) when (@n =< @end) {
+  @name: unit(@n);
+  .mr@{name} {
+    margin-right: @n;
+  }
+  .generate-mr(@n + @step, @end, @step);
+}
+
+.generate-mb(@n, @end, @step: 1) when (@n =< @end) {
+  @name: unit(@n);
+  .mb@{name} {
+    margin-bottom: @n;
+  }
+  .generate-mb(@n + @step, @end, @step);
+}
+
+.generate-ml(@n, @end, @step: 1) when (@n =< @end) {
+  @name: unit(@n);
+  .ml@{name} {
+    margin-left: @n;
+  }
+  .generate-ml(@n + @step, @end, @step);
+}

@@ -1,0 +1,29 @@
+// mixins for clearfix
+// ------------------------
+.clearfix() {
+  zoom: 1;
+
+  &::before,
+  &::after {
+    display: table;
+    content: ' ';
+  }
+
+  &::after {
+    clear: both;
+    height: 0;
+    font-size: 0;
+    visibility: hidden;
+  }
+}
+
+.float(@type) {
+  display: inline;
+  float: @type;
+}
+
+.clr() {
+  clear: both;
+  height: 0;
+  overflow: hidden;
+}

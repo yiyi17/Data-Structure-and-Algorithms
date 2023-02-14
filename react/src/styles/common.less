@@ -1,0 +1,85 @@
+@import '~antd/es/style/themes/default.less';
+
+#root {
+  position: relative;
+  height: 100%;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.textOverflow {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  word-break: break-all;
+}
+
+.float-right {
+  float: right;
+
+  &::after {
+    display: block;
+    clear: both;
+    content: ' ';
+  }
+}
+
+.textOverflowMulti(@line: 3, @bg: #fff) {
+  position: relative;
+  max-height: @line * 1.5em;
+  margin-right: -1em;
+  padding-right: 1em;
+  overflow: hidden;
+  line-height: 1.5em;
+  text-align: justify;
+
+  &::before {
+    position: absolute;
+    right: 14px;
+    bottom: 0;
+    padding: 0 1px;
+    background: @bg;
+    content: '...';
+  }
+
+  &::after {
+    position: absolute;
+    right: 14px;
+    width: 1em;
+    height: 1em;
+    margin-top: 0.2em;
+    background: white;
+    content: '';
+  }
+}
+
+.tip {
+  font-size: 12px;
+
+  .star {
+    color: @error-color;
+  }
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+.error-color {
+  color: @error-color;
+}
+
+.success-color {
+  color: @success-color;
+}
+
+.no-padding {
+  padding: 0 !important;
+}

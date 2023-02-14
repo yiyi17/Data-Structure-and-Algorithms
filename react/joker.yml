@@ -1,0 +1,23 @@
+# 阅读构建文档，完成 joker.yml：http://lavie.zhdocs.io/en/latest/user_guides/getting_started.html#joker-yml
+version: 3.0
+base_image: bionic
+components: # 顺序无关
+  nodejs: 16.13.1
+  python: 3.7
+
+# 参考文档：http://lavie.zhdocs.io/en/latest/user_guides/customize_jokeryml.html#build-script-required
+build:
+  - yarn
+  - yarn build
+
+# 参考文档：http://lavie.zhdocs.io/en/latest/user_guides/customize_jokeryml.html#optional-but-important
+artifacts:
+  targets:
+    - static
+  static:
+    path: ./dist
+
+# 参考文档：http://lavie.zhdocs.io/en/latest/user_guides/customize_jokeryml.html#test-script-required
+test:
+  unittest:
+    - echo 0
