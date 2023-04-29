@@ -15,8 +15,7 @@ function AvatarDropdown() {
           size={30}
           className={styles.avatar}
           src={
-            userInfo.avatar ||
-            'http://ei-newfile.in.zhihu.com/group1/M00/01/69/ComiUmBlnBmAQlIwAABEIgjqSUM63.jpeg'
+            userInfo.avatar
           }
           alt="avatar"
         />

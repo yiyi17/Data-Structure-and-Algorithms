@@ -37,9 +37,6 @@ specifiers:
   sockjs-client: ^1.6.1
   stompjs: ^2.3.3
   typescript: ^4.1.2
-  za-js-monitor: 0.6.0
-  za-react: ^1.28.2
-  zhihu-hybrid: ^2.65.4
 
 dependencies:
   '@ant-design/icons': 4.7.0
@@ -66,9 +63,6 @@ dependencies:
   react-viewer: 3.2.2
   sockjs-client: 1.6.1
   stompjs: 2.3.3
-  za-js-monitor: 0.6.0
-  za-react: 1.30.0_zhihu-hybrid@2.66.0
-  zhihu-hybrid: 2.66.0
 
 devDependencies:
   '@types/react': 18.0.20
@@ -10604,44 +10598,6 @@ packages:
   /yocto-queue/0.1.0:
     resolution: {integrity: sha1-ApTrPe4FAo0x7hpfosVWpqrxChs=}
     engines: {node: '>=10'}
-
-  /za-js-monitor/0.6.0:
-    resolution: {integrity: sha512-vcfUdFacbBdQ6bLrNl9LvJzg52u4Kc15CksInCncTU+cofayGJ5STOlw0zmWY/Ay/NW8BrOxbsYLBASbvQ1bEA==}
-    engines: {node: '>=8.0.0'}
-    dependencies:
-      uuid: 8.3.2
-      web-vitals: 2.1.4
-    dev: false
-
-  /za-react/1.30.0_zhihu-hybrid@2.66.0:
-    resolution: {integrity: sha512-XL+aKQzCCGC32H4c1y8mQnq36FQ+OVT16Py0oY7YGl4d5CPQyESYmICtgi5Mb3y3mkDBRTnWRzkNFuZINRM/Zw==}
-    peerDependencies:
-      react: ^16.14 || ^17
-      zhihu-hybrid: ^2.19.1
-    dependencies:
-      '@cfe/hooks': 1.12.2
-      lodash: 4.17.21
-      zhihu-hybrid: 2.66.0
-    dev: false
-
-  /zhihu-bridge/0.5.0:
-    resolution: {integrity: sha512-JQhp4Vj/SIprroIc/W44QWkJB3VhPZBqDShHKbqcttK/Dn6TIK2PlbbKbwgcIRM1qDa+hJQ1gCDtUOmTc6HIVw==}
-    peerDependencies:
-      rxjs: ^6.2.0
-    dependencies:
-      '@types/uuid': 3.4.10
-      uuid: 3.4.0
-    dev: false
-
-  /zhihu-hybrid/2.66.0:
-    resolution: {integrity: sha512-D8ExJ4D6s1vebGHa5vvNR2/FWcn7RN4FxBJrnc7DMhpNBml7BAeyj3z1sHVRVrBpQBJGA2nd3dPXxd98rWM69w==}
-    peerDependencies:
-      rxjs: ^6.2.2
-    dependencies:
-      hey-listen: 1.0.8
-      lodash: 4.17.21
-      zhihu-bridge: 0.5.0
-    dev: false
 
   /zrender/5.1.1:
     resolution: {integrity: sha1-BRX0+MwPR0LwKmuIGVUKbRPWTFw=}

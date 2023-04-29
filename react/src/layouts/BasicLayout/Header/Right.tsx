@@ -7,7 +7,7 @@ function Right() {
     <div className={styles.right}>
       <span className={styles.links}>
         <a
-          href="https://zhihu.com"
+          href=""
           target="_blank"
           rel="noreferrer"
         >
@@ -15,7 +15,7 @@ function Right() {
         </a>
         <span style={{ margin: '0 10px' }}>|</span>
         <a
-          href="https://zhihu.com/user-feedback/infrastructure-oncall?pId=xx&pName=pv 平台用户反馈&visible=true"
+          href="xxx"
           target="_blank"
           rel="noreferrer"
         >
