@@ -1,10 +1,13 @@
 
 // 分类关注点
 // 提炼函数
+// 修改变量名 
+// 以查询取代临时变量（178）:移出局部变量，局部变量要考虑的变少了
 
 
 
 function statement(invoice, plays) {
+ 
   let totalAmount = 0
   let volumeCredites = 0
   let result = `Statement for ${invoice.customer}\n`
@@ -14,13 +17,11 @@ function statement(invoice, plays) {
     minimumFractionDigits: 2
   }).format;
   for(let perf of invoice.performances) {
-    const play = plays[perf.playID]
-    let thisAmount = amountFor(play, perf);
+    // const play = playFor(perf)
+    let thisAmount = amountFor(perf);  
     volumeCredites += Math.max(perf.audience -30, 0)
-
-    if( "comedy" === play.type) volumeCredites += Math.floor(perf.audience / 5)
-
-    result +=` ${play.name}: ${format(thisAmount / 100)} ${perf.audience} seats\n`
+    if( "comedy" === playFor(perf).type) volumeCredites += Math.floor(perf.audience / 5)
+    result +=` ${playFor(perf).name}: ${format(thisAmount / 100)} ${perf.audience} seats\n`
     totalAmount = thisAmount
   }
   result += `Amount owned is ${format(totalAmount / 100)}\n`
@@ -66,24 +67,29 @@ const plays = {
 
 console.log('statement(invoice, plays)', statement(invoice, plays))
 
-function amountFor(play, perf) {
-  let thisAmount = 0;
-  switch (play.type) {
+function playFor(aPerformance) {
+  return plays[aPerformance.playID]
+}
+function amountFor(aPerformance) {
+  let result = 0;
+  switch (playFor(aPerformance).type) {
     case "tragedy":
-      thisAmount = 4000;
-      if (perf.audience > 30) {
-        thisAmount += 1000 * (perf.audience - 30);
+      result = 4000;
+      if (aPerformance.audience > 30) {
+        result += 1000 * (aPerformance.audience - 30);
       }
       break;
     case "comedy":
-      thisAmount = 3000;
-      if (perf.audience > 20) {
-        thisAmount += 1000 + 50 * (perf.audience - 20);
+      result = 3000;
+      if (aPerformance.audience > 20) {
+        result += 1000 + 50 * (aPerformance.audience - 20);
       }
-      thisAmount += 300 * perf.audience;
+      result += 300 * aPerformance.audience;
       break;
     default:
-      throw new Error(`Unknown type: ${play.type}`);
+      throw new Error(`Unknown type: ${playFor(aPerformance).type}`);
   }
-  return thisAmount;
+  return result;
 }
+
+

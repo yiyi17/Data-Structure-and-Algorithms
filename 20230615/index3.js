@@ -1,10 +1,13 @@
 
 // 分类关注点
 // 提炼函数
-
+// 修改变量名 
+// 函数参数名称：参数名带类型名
 
 
 function statement(invoice, plays) {
+ 
+  
   let totalAmount = 0
   let volumeCredites = 0
   let result = `Statement for ${invoice.customer}\n`
@@ -66,24 +69,25 @@ const plays = {
 
 console.log('statement(invoice, plays)', statement(invoice, plays))
 
-function amountFor(play, perf) {
-  let thisAmount = 0;
+// 函数参数名称：参数名带类型名
+function amountFor(play, aPerformance) {
+  let result = 0;
   switch (play.type) {
     case "tragedy":
-      thisAmount = 4000;
-      if (perf.audience > 30) {
-        thisAmount += 1000 * (perf.audience - 30);
+      result = 4000;
+      if (aPerformance.audience > 30) {
+        result += 1000 * (aPerformance.audience - 30);
       }
       break;
     case "comedy":
-      thisAmount = 3000;
-      if (perf.audience > 20) {
-        thisAmount += 1000 + 50 * (perf.audience - 20);
+      result = 3000;
+      if (aPerformance.audience > 20) {
+        result += 1000 + 50 * (aPerformance.audience - 20);
       }
-      thisAmount += 300 * perf.audience;
+      result += 300 * aPerformance.audience;
       break;
     default:
       throw new Error(`Unknown type: ${play.type}`);
   }
-  return thisAmount;
+  return result;
 }
