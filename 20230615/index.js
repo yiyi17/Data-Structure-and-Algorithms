@@ -78,4 +78,3 @@ const plays = {
 }
 
 console.log('statement(invoice, plays)', statement(invoice, plays))
-console.log('statement(invoice, plays)', statement(invoice, plays))
