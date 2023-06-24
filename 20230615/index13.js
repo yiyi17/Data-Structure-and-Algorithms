@@ -8,17 +8,33 @@
 
 // 将函数赋值给临时变量：format
 
+// format 重命名 usd
+
+// 拆分循环、移动语句
+
+// 提炼函数、内联变量
+
+// totalAmount 提炼函数、内联变量、重命名内部变量
+
+// 提供一个 「HTML 版本」 和「文本描述版本」
+// 拆分阶段：计算、渲染两个阶段
+
+// 中转数据 statementData
 function statement(invoice) {
-  let totalAmount = 0
-  let volumeCredites = 0
-  let result = `Statement for ${invoice.customer}\n`
-  for(let perf of invoice.performances) {
-    volumeCredites += volumeCreditsFor(perf);
-    result +=` ${playFor(perf).name}: ${format(amountFor(perf) / 100)} ${perf.audience} seats\n`
-    totalAmount +=  amountFor(perf)
+  const statementData = {}
+  statementData.customer = invoice.customer
+  statementData.performances = invoice.performances
+  return renderPlainText(statementData)
+}
+
+function renderPlainText(data) {
+  let result = `Statement for ${data.customer}\n`
+  for(let perf of data.performances) {
+    result +=` ${playFor(perf).name}: ${usd(amountFor(perf))} ${perf.audience} seats\n`
   }
-  result += `Amount owned is ${format(totalAmount / 100)}\n`
-  result += `You earned ${volumeCredites} credits \n`
+  
+  result += `Amount owned is ${usd(totalAmount(data))}\n`
+  result += `You earned ${totalVolumeCredites(data)} credits \n`
   
   return result
 }
@@ -58,14 +74,31 @@ const plays = {
   }
 }
 
-console.log('statement(invoice, plays)', statement(invoice, plays))
+console.log('statement(invoice, plays)', statement(invoice))
 
-function format(aNumber) {
+function totalAmount(data) {
+  let result = 0
+  for (const perf of data.performances) {
+    result += amountFor(perf)
+  }
+  return result
+}
+
+function totalVolumeCredites(data) {
+  let result = 0
+  for (const perf of data.performances) {
+    result += volumeCreditsFor(perf)
+
+  }
+  return result
+}
+
+function usd(aNumber) {
   return new Intl.NumberFormat('en-US', {
     style: "currency",
     currency: 'USD',
     minimumFractionDigits: 2
-  }).format(aNumber);
+  }).format(aNumber / 100);
 }
 
 function volumeCreditsFor(perf) {

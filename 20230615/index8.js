@@ -17,7 +17,7 @@ function statement(invoice) {
   for(let perf of invoice.performances) {
     volumeCredites += volumeCreditsFor(perf);
     result +=` ${playFor(perf).name}: ${usd(amountFor(perf))} ${perf.audience} seats\n`
-    totalAmount = amountFor(perf)
+    totalAmount +=  amountFor(perf)
   }
   result += `Amount owned is ${usd(totalAmount)}\n`
   result += `You earned ${volumeCredites} credits \n`

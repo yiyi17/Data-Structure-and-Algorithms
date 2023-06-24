@@ -1,5 +1,9 @@
 
 
+// 根据观众（audience）人数及剧目类型收费，剧目类型：喜剧（comedy）、悲剧（tragedy）
+
+// 给客户发出账单，并给出观众量积分（vomume credites）优惠
+
 function statement(invoice, plays) {
   let totalAmount = 0
   let volumeCredites = 0
@@ -34,7 +38,7 @@ function statement(invoice, plays) {
     if( "comedy" === play.type) volumeCredites + Math.floor(perf.audience / 5)
 
     result +=` ${play.name}: ${format(thisAmount / 100)} ${perf.audience} seats\n`
-    totalAmount = thisAmount
+    totalAmount += thisAmount
   }
   result += `Amount owned is ${format(totalAmount / 100)}\n`
   result += `You earned ${volumeCredites} credits \n`
@@ -45,7 +49,7 @@ function statement(invoice, plays) {
 
 const invoice = 
   {
-    "coustomer": "BigCo",
+    "customer": "BigCo",
     "performances":[
       {
         "playID": "Hamlet",
@@ -61,7 +65,6 @@ const invoice =
       }
     ]
   }
-
 const plays = {
   "Hamlet": {
     "name": "Hamlet",
