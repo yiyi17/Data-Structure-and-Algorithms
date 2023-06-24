@@ -8,17 +8,22 @@
 
 // 将函数赋值给临时变量：format
 
+// format 重命名 usd
+
+// 拆分循环、移动语句
+
+// 提炼函数、内联变量
+
 function statement(invoice) {
   let totalAmount = 0
-  let volumeCredites = 0
   let result = `Statement for ${invoice.customer}\n`
   for(let perf of invoice.performances) {
-    volumeCredites += volumeCreditsFor(perf);
-    result +=` ${playFor(perf).name}: ${format(amountFor(perf) / 100)} ${perf.audience} seats\n`
+    result +=` ${playFor(perf).name}: ${usd(amountFor(perf))} ${perf.audience} seats\n`
     totalAmount +=  amountFor(perf)
   }
-  result += `Amount owned is ${format(totalAmount / 100)}\n`
-  result += `You earned ${volumeCredites} credits \n`
+  
+  result += `Amount owned is ${usd(totalAmount)}\n`
+  result += `You earned ${totalVolumeCredites(invoice)} credits \n`
   
   return result
 }
@@ -58,14 +63,23 @@ const plays = {
   }
 }
 
-console.log('statement(invoice, plays)', statement(invoice, plays))
+console.log('statement(invoice, plays)', statement(invoice))
 
-function format(aNumber) {
+function totalVolumeCredites(invoice) {
+  let volumeCredites = 0
+  for (const perf of invoice.performances) {
+    volumeCredites += volumeCreditsFor(perf)
+
+  }
+  return volumeCredites
+}
+
+function usd(aNumber) {
   return new Intl.NumberFormat('en-US', {
     style: "currency",
     currency: 'USD',
     minimumFractionDigits: 2
-  }).format(aNumber);
+  }).format(aNumber / 100);
 }
 
 function volumeCreditsFor(perf) {
