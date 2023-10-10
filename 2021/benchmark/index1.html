@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<div id="demo">
+    <a href="https://jsperf.com/">jsperf.com</a>
+    <br>
+    <a href="https://benchmarkjs.com/">benchmarkjs.com</a>
+</div>
+
+<body>
+    <script src="../lodash/lodash.js"></script>
+    <script src="../platform/platform.js"></script>
+    <script src="../benchmark/benchmark.js"></script>
+    <script>
+        var suite = new Benchmark.Suite('foo', {});
+        console.log('%c' + String(Benchmark.platform),'background:blue;color:#fff;font-size:16px;');
+        console.log('%c正在测试中...', 'background:blue;color:#fff;');
+        /*
+        // add tests
+        suite.add('getElementById#test', function () {
+            document.getElementById('demo');
+            // /o/.test('hello')
+        }, {
+
+            })
+            .add('querySelector#indexOf', function () {
+                document.querySelector('#demo')
+                // 'hello'.indexOf('o')
+            })
+
+            // add listeners
+            .on('cycle', function (event) {
+                let str = String(event.target);
+                console.log(`%c` + str, 'background:yellow;color:#000;font-size:16px;');
+            })
+            .on('complete', function () {
+                // console.log(this);
+                console.log('%cFastest is ' + this.filter('fastest').map('name'), 'color:#fff;background:green;font-size:16px;');
+                console.log('%c测试完成', 'background:blue;color:#fff;');
+            })
+            // run async 异步的
+            .run({ 'async': true });
+
+            */
+        const arr = new Array(100000).fill(1);
+        // const arr = [];//Fastest is for_normal,for正序-inTurn
+        suite.add('for_normal', () => {
+            for (let i = 0; i < arr.length; i++) {
+            }
+        })
+            .add('for正序-inTurn', () => {
+                for (let i = 0, len = arr.length; i < len; i++) {
+                }
+            })
+            .add('for倒序-invertedOrder', () => {
+                for (let i = arr.length; i--;) {
+                }
+            })
+            .add('for_in', () => {
+                for (let i in arr) { }
+            })
+            .add('for_of', () => {
+                for (let i of arr) { }
+            })
+            .add('for_map', () => {
+                arr.map(item => { })
+            })
+            .add('for_each', () => {
+                arr.forEach(item => { })
+            })
+            .add('for_while', () => {
+                let i = 0
+                let len = arr.length
+                while (i < len) {
+                    i++
+                }
+            })
+            .add('while_normal', () => {
+                let i = 0
+                while (i < arr.length) {
+                    i++
+                }
+            })
+            .on('cycle', event => {
+                let str = String(event.target);
+                console.log(`%c` + str, 'background:yellow;color:#000;font-size:16px;');
+            })
+            .on('complete', function () {
+                console.log(this);
+                console.log(this.filter('fastest'));
+               console.log('%cFastest is ' + this.filter('fastest').map('name'), 'color:#fff;background:green;font-size:16px;');
+                console.log('%c测试完成', 'background:blue;color:#fff;');
+            })
+            .run({ 'async': true });
+    </script>
+</body>
+
+</html>
