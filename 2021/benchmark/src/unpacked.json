@@ -1,0 +1,26 @@
+{
+  "type": "world",
+  "name": "earth",
+  "children": [
+    {
+      "type": "continent",
+      "name": "America",
+      "children": [
+        {
+          "type": "country",
+          "name": "Chile",
+          "children": [
+            {
+              "type": "commune",
+              "name": "Antofagasta"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "continent",
+      "name": "Europe"
+    }
+  ]
+}
