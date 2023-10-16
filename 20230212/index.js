@@ -3,25 +3,39 @@
 // dp[n] = min(dp[n],dp[n-coin1] + 1，dp[n-coin2],...)  金额为n时，硬币数等于(n-coin)+1中所需硬币最少的组合
 
 
-function caculate(amount,coins) {
-  let dp = new Array(amount + 1).fill(Infinity)
-  dp[0] = 0
+/**
+ * Calculate the minimum number of coins needed to make up a given amount.
+ * 
+ * @param {number} amount - The target amount.
+ * @param {number[]} coins - The available coins.
+ * @returns {number} - The minimum number of coins needed, or -1 if it is not possible.
+ */
+function calculate(amount, coins) {
+  // Initialize an array with length equal to the amount plus one and fill it with Infinity.
+  let dp = new Array(amount + 1).fill(Infinity);
+  
+  // Set the value at index 0 to 0, as it requires no coins to make up the amount 0.
+  dp[0] = 0;
 
-  for(let i = 0; i <= amount; i++) {
-    for(let coin of coins) {
-      if(i - coin >= 0) {
-        dp[i] = Math.min(dp[i], dp[i-coin] + 1)
+  // Iterate through each value from 0 up to the target amount.
+  for (let i = 0; i <= amount; i++) {
+    // Iterate through each available coin.
+    for (let coin of coins) {
+      // If the current coin can be subtracted from the current value without resulting in a negative value.
+      if (i - coin >= 0) {
+        // Update the minimum number of coins needed to make up the current value.
+        dp[i] = Math.min(dp[i], dp[i - coin] + 1);
       }
     }
   }
 
-  return dp[amount] === Infinity ? -1 : dp[amount]
-
+  // Return -1 if it is not possible to make up the target amount, otherwise return the minimum number of coins needed.
+  return dp[amount] === Infinity ? -1 : dp[amount];
 }
 
 
 
-console.log(caculate(7, [2,4,5,6]));
+console.log(calculate(7, [2,4,5,6]));
 
 
 const allMoney = [100, 50, 20, 5, 1];  // 表示我们手上有的面值
