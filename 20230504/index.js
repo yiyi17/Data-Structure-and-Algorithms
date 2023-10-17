@@ -87,16 +87,29 @@ const sumWithInitial = array1.selefReduce(
 console.log(sumWithInitial);
 // Expected output: 10
 
+/**
+ * Flattens an array to a specified depth.
+ * 
+ * @param {number} [depth=1] - The maximum depth to flatten the array.
+ * @returns {Array} - The flattened array.
+ */
 const selfFlat = function(depth = 1) {
-  let arr = Array.prototype.slice.call(this)
-  if(depth === 0) return arr
-  return arr.reduce((pre,cur) => {
+  // Convert the context to an array
+  let arr = Array.prototype.slice.call(this);
+
+  // If depth is zero, return the array as is
+  if(depth === 0) return arr;
+
+  // Reduce the array to flatten it
+  return arr.reduce((pre, cur) => {
+    // If the current element is an array, recursively flatten it
     if(Array.isArray(cur)){ 
       return [...pre, ...selfFlat.call(cur, depth - 1)];
-    }else {
-      return [...pre, cur]
+    } else {
+      // Otherwise, add the element to the flattened array
+      return [...pre, cur];
     }
-  }, [])
+  }, []);
 }
 Array.prototype.selfFlat = selfFlat
 console.log([[1,[123]]].selfFlat());
