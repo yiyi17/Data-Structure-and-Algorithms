@@ -1,5 +1,6 @@
 
 // 在严格模式下的输出
+// 'use strict';
 let func = function () {
   this.value = 1;
 };
