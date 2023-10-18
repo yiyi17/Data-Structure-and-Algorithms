@@ -1,20 +1,19 @@
 
 // 不改变顺序、空间复杂度不增加
-// function handleArr(arr) {
-//   const len = arr.length;
-//   for (let i = 0; i < len; i++) {
-//     if (arr[i] === 0 && arr[i + 1] !== 0) {
-//       arr.splice(i, 1);
-//       arr.push(0);
-//     }else if (arr[i] ===0 && arr[i + 1] ===0){
-//       arr.splice(i, 2);
-//       arr =  arr.concat([0,0]);
-//     }
-//   }
-//   return arr
-// }
+function handleArr(arr) {
+  const len = arr.length;
+  for (let i = 0; i < len; i++) {
+   if(arr[i] === 0) {
+    arr[i] = undefined;
+    arr.push(0);
+   }
+  }
+  return arr.filter(item => item !== undefined)
+}
 
 
+
+// 冒泡
 function handleArr(arr) {
   for (var i = 0; i < arr.length; i++) {
     for (var j = i; j < arr.length;j++) {
@@ -26,28 +25,59 @@ function handleArr(arr) {
   }
   return arr
 }
-console.log(handleArr([3,0,0,12,0,1,0]));
+
+// 步长
+function handleArr(arr) {
+  let index = 0;
+  let moveStep = 0
+
+  while(index + moveStep < arr.length - 1) {
+    if(arr[index] === 0){
+      arr.splice(index, 1)
+      arr.push(0)
+      moveStep++
+    }else{
+      index ++
+    }
+  }
+  return arr
+}
+
+// 计数法
+function handleArr(arr) {
+  let count = 0
+  for(let i = 0; i +  count < arr.length;) {
+    if(arr[i] === 0){
+      arr.splice(i, 1)
+      arr.push(0)
+      count++
+    }else {
+      i++
+    }
+  }
+  return arr
+}
+
+console.log(handleArr([3,0,0,0,12,0,1,0]));
+
+function sortZero(nums) {
+  let index = 0;
+  let moveStep = 0;
+
+  while (index + moveStep < nums.length - 1) {
+    const n = nums[index]
+    if (n === 0) {
+      nums.splice(index, 1);
+      nums.push(0)
+      moveStep++
+    } else {
+      index++
+    }
+  }
+
+  return nums;
+}
+
+console.log(sortZero([1, 2, 3, 0, 5, 70, 0, 0, 123, 2, 0, 44, 0, 0]));
 
 
-
-
-
-// function sortZero(nums) {
-//   let left = 0;
-//   let right = nums.length - 1;
-
-//   while (left < right) {
-//     if (nums[left] === 0) {
-//       [nums[left], nums[right]] = [nums[right], nums[left]];
-//       right--;
-//     } else {
-//       left++;
-//     }
-//   }
-
-//   return nums;
-// }
-
-
-
-// console.log(sortZero([1, 2, 3, 0, 5, 70, 0, 0, 123, 2, 0, 44, 0, 0]));
