@@ -22,13 +22,12 @@ Promise.myAllSettled = function(p) {
           status: 'fulfilled',
            value: res
         }
-        count++
-        if(count === p.length) resolve(list)
       }, reject => {
         list[index] = {
           status: 'rejected',
           value: reject
         }
+      }).finally(() => {
         count++
         if(count === p.length) resolve(list)
       })
