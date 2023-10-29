@@ -67,6 +67,12 @@
 - [Promise](20231029/promise.js)
   
 - [nextTick](20231029/nextTick.js)
+
+- [正则](20231029/reg.js)
+
+- [队列](20231029/queue.js)
+
+- [this](20231029/this.js)
 ## 参考资料
 
 [JavaScript 数据结构与算法学习笔记（专辑）

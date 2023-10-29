@@ -27,5 +27,22 @@ for(let i = 0, j = 0; i < 3 && j > -1; i++, j--) {
 
 const obj = {a:1}
 console.log(obj);
-
 console.log(1 & 2);
+
+function myTemplate(strings, ...values) {
+  strings
+  values
+  let result = '';
+  for (let i = 0; i < strings.length; i++) {
+    result += strings[i];
+    if (i < values.length) {
+      result += values[i];
+    }
+  }
+  return result;
+}
+
+const name = 'John';
+const age = 25;
+const message = myTemplate`Hello, my name is ${name} and I am ${age} years old.`;
+console.log(message); // 输出：Hello, my name is John and I am 25 years old.
