@@ -1,4 +1,4 @@
-// 同积元祖
+// 同积元祖: 取数组中四个值，组合起来乘机相等
 
 function handleArr(arr) {
  let count = 0

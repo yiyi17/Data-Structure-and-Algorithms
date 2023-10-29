@@ -58,10 +58,14 @@
 
 - [数组位置替换](20231017/index2.js)
 
-- [数组while 循环](20231019/index.js)
-- [数组while 循环](20231019/index2.js)
+- [数组 while 循环](20231019/index.js)
+
+- [同积元祖](20231019/index2.js)
+
 - [数组塔](20231026/index.js)
   
+- [Promise](20231029/promise.js)
+- [nextTick](20231029/nextTick.js)
 ## 参考资料
 
 [JavaScript 数据结构与算法学习笔记（专辑）
