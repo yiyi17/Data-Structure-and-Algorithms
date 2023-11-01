@@ -39,33 +39,64 @@
 //   }
 // }
 
-function scheduler(num) {
-  let quque = [];
-  let pendingCount = 0;
-  let resolveQuque = [];
+// function scheduler(num) {
+//   let quque = [];
+//   let pendingCount = 0;
+//   let resolveQuque = [];
+
+//   function request(resolve) {
+//     quque.shift()().then((res) => {
+//       resolve(res)
+//       pendingCount--
+//       if(resolveQuque.length){
+//         request(resolveQuque.shift());
+//       }
+//     });
+//   }
+
+//   return (fn) => {
+//     quque.push(fn);
+
+//     return new Promise((resolve) => {
+
+//       if (pendingCount >= num) {
+//         resolveQuque.push(resolve);
+//         return;
+//       }
+
+//       pendingCount++
+//       request(resolve);
+//     })
+//   }
+// }
+
+function scheduler(limit) {
+  const quque = []
+  let pendingCount = 0
+  let resolveQueue = []
 
   function request(resolve) {
+    console.log(resolve);
     quque.shift()().then((res) => {
       resolve(res)
       pendingCount--
-      if(resolveQuque.length){
-        request(resolveQuque.shift());
+      if(resolveQueue.length) {
+        request(resolveQueue.shift())
       }
-    });
+    })
   }
 
-  return (fn) => {
-    quque.push(fn);
-
+  return function(task) {
+    quque.push(task)
     return new Promise((resolve) => {
-
-      if (pendingCount >= num) {
-        resolveQuque.push(resolve);
-        return;
+     
+      if(pendingCount >= limit) {
+        resolveQueue.push(resolve);
+        return
       }
 
       pendingCount++
-      request(resolve);
+      request(resolve)
     })
   }
 }
