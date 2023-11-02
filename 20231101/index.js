@@ -76,7 +76,6 @@ function scheduler(limit) {
   let resolveQueue = []
 
   function request(resolve) {
-    console.log(resolve);
     quque.shift()().then((res) => {
       resolve(res)
       pendingCount--
@@ -89,12 +88,10 @@ function scheduler(limit) {
   return function(task) {
     quque.push(task)
     return new Promise((resolve) => {
-     
       if(pendingCount >= limit) {
         resolveQueue.push(resolve);
         return
       }
-
       pendingCount++
       request(resolve)
     })
