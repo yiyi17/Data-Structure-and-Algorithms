@@ -23,6 +23,7 @@ let func = function () {
 };
 let obj = myNew(func);
 func.prototype.value = 2;
+
 let value = 3;
 func();
 
