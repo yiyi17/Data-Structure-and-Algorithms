@@ -66,6 +66,7 @@
 
 - [数组塔](20231026/index.js)
   
+- [Promise 是什么](20231116/index2.js)
 - [Promise](20231029/promise.js)
   
 - [nextTick](20231029/nextTick.js)
