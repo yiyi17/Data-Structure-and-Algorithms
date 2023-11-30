@@ -1,6 +1,6 @@
 ## 来给你的脑子做做操
 
-所得的问题，应该都是应该被解决的
+Talk is Cheap，show me your code！
 
 ## 题目记录
 
