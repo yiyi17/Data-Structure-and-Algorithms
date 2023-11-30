@@ -77,6 +77,8 @@
 
 - [nextTick 和 setImmediate](20231129/index.js)
 
+- [for await...of](20231130/index.js)
+
 ## 参考资料
 
 [JavaScript 数据结构与算法学习笔记（专辑）
