@@ -79,9 +79,4 @@
 
 - [for await...of](20231130/index.js)
 
-## 参考资料
-
-[JavaScript 数据结构与算法学习笔记（专辑）
-](https://xpoet.cn/2020/07/JavaScript%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%93%E8%BE%91%EF%BC%89/)
-
-- [「2021」高频前端面试题汇总之手写代码篇](https://juejin.cn/post/6946136940164939813)
+- [asyncLocalStorage](20231130/index2.mjs)
