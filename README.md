@@ -1,6 +1,6 @@
 ## 来给你的脑子做做操
 
-Talk is Cheap，show me your code！
+做技术从菜鸟开始，「Talk is Cheap，show me your code！」
 
 ## 题目记录
 
