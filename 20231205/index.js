@@ -13,6 +13,8 @@ var obj = new ColoredTriangle();
 
 for (var prop in obj) {
   prop;
+  console.log(obj.propertyIsEnumerable(prop), prop);
+  console.log(Object.hasOwn(obj, prop));
   if (obj.hasOwnProperty(prop)) {
     console.log(`obj.${prop} = ${obj[prop]}`);
   }
