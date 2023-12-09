@@ -1,6 +1,6 @@
 ## 来给你的脑子做做操
 
-所得的问题，应该都是应该被解决的
+「Talk is Cheap，show me your code！」
 
 ## 题目记录
 
@@ -50,6 +50,7 @@
 - [计算[1,n]之间能被 3 5 7 整除的所有的整数之和](20231017/index.js)
 
 - [new 操作符与原型对象](20231017/new.js)
+- [原型对象](20231109/index.js)
 
 - [数组位置替换](20231017/index2.js)
 
@@ -58,6 +59,7 @@
 - [同积元祖](20231019/index2.js)
 
 - [数组塔](20231026/index.js)
+- [Promise 是什么](20231116/index2.js)
 - [Promise](20231029/promise.js)
 - [nextTick](20231029/nextTick.js)
 
@@ -73,10 +75,8 @@
 
 - [双指针数组删除重复的值](20231105/index.js)
 
-- [输出一个整数的各个位数](20231209/index.js)
+- [nextTick 和 setImmediate](20231129/index.js)
 
-## 参考资料
+- [for await...of](20231130/index.js)
 
-[JavaScript 数据结构与算法学习笔记（专辑） ](https://xpoet.cn/2020/07/JavaScript%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%93%E8%BE%91%EF%BC%89/)
-
-- [「2021」高频前端面试题汇总之手写代码篇](https://juejin.cn/post/6946136940164939813)
+- [asyncLocalStorage](20231130/index2.mjs)

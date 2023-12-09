@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script type="module" src="./index.js" async="false"></script>
+  <script>
+    setTimeout(() => {
+      const a  = new Person()
+      console.log(a,2222);
+      a.name=10
+    },10)
+  </script>
+</head>
+<body>
+  
+</body>
+
+<script type="module">
+import {Person} from './index.js'
+const b  = new Person()
+console.log(b['a'],1111);
+</script>
+</html>
