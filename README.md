@@ -80,3 +80,7 @@
 - [for await...of](20231130/index.js)
 
 - [asyncLocalStorage](20231130/index2.mjs)
+
+- [输出一个整数的各个位数](20231209/index.js)
+
+- [数组输出不超过 2 个重复的个数](20231210/index.js)
