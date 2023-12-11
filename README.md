@@ -90,3 +90,5 @@
 - [获取 Map 的 value 最大, 输出 key](20231210/index3.js)
 
 - [try catch 只能捕获同步错误，捕获不到的错误有哪些](20231211/index.js)
+
+- [unhandledrejection: 当 Promise 被 reject, 且调用 then 方法没有 reject 处理器的时候](20231211/index2.js)
