@@ -1,6 +1,6 @@
-## 来给你的脑子做做操
+# 代码健身操
 
-「Talk is Cheap，show me your code！」
+代码还是值得好好研究下的「Talk is Cheap，show me your code！」
 
 ## 题目记录
 
@@ -86,4 +86,7 @@
 - [数组输出不超过 2 个重复的个数](20231210/index.js)
 
 - [Date.parse](20231210/index2.js)
+
 - [获取 Map 的 value 最大, 输出 key](20231210/index3.js)
+
+- [try catch 捕获不到的错误](20231211/index.js)
