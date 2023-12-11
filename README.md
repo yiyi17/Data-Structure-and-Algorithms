@@ -85,8 +85,8 @@
 
 - [数组输出不超过 2 个重复的个数](20231210/index.js)
 
-- [Date.parse](20231210/index2.js)
+- [Date.parse 的用法](20231210/index2.js)
 
 - [获取 Map 的 value 最大, 输出 key](20231210/index3.js)
 
-- [try catch 捕获不到的错误](20231211/index.js)
+- [try catch 只能捕获同步错误，捕获不到的错误有哪些](20231211/index.js)
