@@ -19,7 +19,7 @@
     "@ant-design/pro-table": "^2.78.3",
     "@fe/usc": "^0.18.1",
     "@umijs/max": "^4.0.11",
-    "ahooks": "2.9.1",
+    "ahooks": "2.10.14",
     "antd": "^4.20.7",
     "hox": "^1.1.6",
     "normalizr": "^3.6.2",
