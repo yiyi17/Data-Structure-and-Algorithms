@@ -12,54 +12,91 @@
 // "25525522135"
 // ["255.255.22.135","255.255.221.35"]
 
-function restoreIpAddresses(s) {
-  const result = []; // 用于存储结果的数组
+var restoreIpAddresses = function (s) {
+  const SEG_COUNT = 4;
+  const segments = new Array(SEG_COUNT);
+  const ans = [];
 
-  // 回溯函数
-  function backtrack(s, path, segments) {
-    // console.log(s);
-    // console.log(path);;
-    // segments;
-    // 如果已经找到了 4 个片段，并且字符串 s 中的所有字符都被使用了
-    if (segments === 4 && !s) {
-      result.push(path.join('.'));
+  const dfs = (s, segId, segStart) => {
+    // 如果找到了 4 段 IP 地址并且遍历完了字符串，那么就是一种答案
+    if (segId === SEG_COUNT) {
+      if (segStart === s.length) {
+        ans.push(segments.join('.'));
+      }
       return;
     }
 
-    // 如果已经找到了 4 个片段，但是字符串 s 中还有字符剩余
-    if (segments === 4 || !s) {
+    // 如果还没有找到 4 段 IP 地址就已经遍历完了字符串，那么提前回溯
+    if (segStart === s.length) {
       return;
     }
 
-    // 尝试所有可能的片段长度（1、2 或 3 个数字）
-    for (let i = 1; i <= 3; i++) {
-      // 如果片段长度超过了字符串 s 的长度，则跳过
-      if (i > s.length) {
-        continue;
-      }
-      // 如果片段以 0 开头但不是单个 0，则跳过
-      if (i > 1 && s[0] === '0') {
-        continue;
-      }
-      // 如果片段大于 255，则跳过
-      if (parseInt(s.substring(0, i)) > 255) {
-        continue;
-      }
+    // 由于不能有前导零，如果当前数字为 0，那么这一段 IP 地址只能为 0
+    if (s.charAt(segStart) === '0') {
+      segments[segId] = 0;
+      dfs(s, segId + 1, segStart + 1);
+      return;
+    }
 
-      // 将当前片段添加到路径中
-      path.push(s.substring(0, i));
-      // 递归地回溯剩余的字符串和更新后的路径
-      backtrack(s.substring(i), path, segments + 1);
-      // 从路径中移除当前片段以进行回溯
-      path.pop();
+    // 一般情况，枚举每一种可能性并递归
+    let addr = 0;
+    for (let segEnd = segStart; segEnd < s.length; ++segEnd) {
+      addr = addr * 10 + s.charAt(segEnd) * 1;
+      if (addr > 0 && addr <= 255) {
+        segments[segId] = addr;
+        dfs(s, segId + 1, segEnd + 1);
+      } else {
+        break;
+      }
+    }
+  };
+
+  dfs(s, 0, 0);
+  return ans;
+};
+
+restoreIpAddresses = function restoreIpAddresses(s) {
+  const SEG_COUNT = 4;
+  const segments = new Array(SEG_COUNT);
+  const result = [];
+
+  function dfs(s, index, start) {
+    if (index === SEG_COUNT) {
+      if (start === s.length) {
+        result.push(segments.join('.'));
+      }
+      return;
+    }
+
+    if (start === s.length) return;
+
+    if (s.charAt(0) == '0') {
+      segments[index] = '0';
+
+      dfs(s, index + 1, start + 1);
+      return;
+    }
+
+    let addr = 0;
+    for (let i = start; i < s.length; i++) {
+      addr = addr * 10 + s.charAt(i) * 1;
+      if (addr > 0 && addr <= 255) {
+        segments[index] = addr;
+        dfs(s, index + 1, i + 1);
+      }
     }
   }
 
-  // 开始回溯
-  backtrack(s, [], 0);
-
+  dfs(s, 0, 0);
   return result;
-}
+};
 
 const s = '25525522135';
 console.log(restoreIpAddresses(s));
+
+// let n = 0;
+
+// for (let i = 0; i < s.length; i++) {
+//   n = n * 10 + s.charAt(i) * 1;
+//   n;
+// }
