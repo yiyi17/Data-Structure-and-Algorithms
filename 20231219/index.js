@@ -1,43 +1,31 @@
+// 四数值和
+// 输入：
+// const nums = [1, 0, -1, 0, -2, 2];
+// const target = 0;
+// 输出：[[-2,-1,1,2],[-2,0,0,2],[-1,0,0,1]]
+
 var fourSum = function (nums, target) {
-  const quadruplets = [];
-  if (nums.length < 4) {
-    return quadruplets;
-  }
+  const len = nums.length;
+  const result = [];
+  if (len < 4) return result;
   nums.sort((x, y) => x - y);
 
-  nums;
-
-  const length = nums.length;
-
-  for (let i = 0; i < length - 3; i++) {
-    if (i > 0 && nums[i] === nums[i - 1]) {
+  for (let i = 0; i < len - 3; i++) {
+    if (i > 0 && nums[i] === nums[i - 1]) continue;
+    if (nums[i] + nums[i + 1] + nums[i + 2] + nums[i + 3] > target) break;
+    if (nums[i] + nums[len - 1] + nums[len - 2] + nums[len - 3] < target)
       continue;
-    }
-    if (nums[i] + nums[i + 1] + nums[i + 2] + nums[i + 3] > target) {
-      break;
-    }
-    if (
-      nums[i] + nums[length - 3] + nums[length - 2] + nums[length - 1] <
-      target
-    ) {
-      continue;
-    }
-    for (let j = i + 1; j < length - 2; j++) {
-      if (j > i + 1 && nums[j] === nums[j - 1]) {
-        continue;
-      }
-      if (nums[i] + nums[j] + nums[j + 1] + nums[j + 2] > target) {
-        break;
-      }
-      if (nums[i] + nums[j] + nums[length - 2] + nums[length - 1] < target) {
-        continue;
-      }
+    for (let j = i + 1; j < len - 2; j++) {
+      if (j > i + 1 && nums[j] === nums[j - 1]) continue;
+      if (nums[i] + nums[j] + nums[j + 1] + nums[j + 2] > target) break;
+      if (nums[i] + nums[j] + nums[len - 1] + nums[len - 2] < target) continue;
+
       let left = j + 1,
-        right = length - 1;
+        right = len - 1;
       while (left < right) {
         const sum = nums[i] + nums[j] + nums[left] + nums[right];
         if (sum === target) {
-          quadruplets.push([nums[i], nums[j], nums[left], nums[right]]);
+          result.push([nums[i], nums[j], nums[left], nums[right]]);
           while (left < right && nums[left] === nums[left + 1]) {
             left++;
           }
@@ -54,10 +42,10 @@ var fourSum = function (nums, target) {
       }
     }
   }
-
-  quadruplets;
-  return quadruplets;
+  result; // [[-2,-1,1,2],[-2,0,0,2],[-1,0,0,1]]
+  return result;
 };
-(nums = [1, 0, -1, 0, -2, 2]), (target = 0);
 
+const nums = [1, 0, -1, 0, -2, 2];
+const target = 0;
 fourSum(nums, target);
