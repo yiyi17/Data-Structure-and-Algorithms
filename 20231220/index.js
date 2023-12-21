@@ -20,7 +20,7 @@ var jump = function (nums) {
       steps++;
     }
   }
-
+  steps;
   return steps;
 };
 
