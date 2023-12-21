@@ -55,11 +55,10 @@ var restoreIpAddresses = function (s) {
   return ans;
 };
 
-restoreIpAddresses = function restoreIpAddresses(s) {
+var restoreIpAddresses = function restoreIpAddresses(s) {
   const SEG_COUNT = 4;
   const segments = new Array(SEG_COUNT);
   const result = [];
-
   function dfs(s, index, start) {
     if (index === SEG_COUNT) {
       if (start === s.length) {
