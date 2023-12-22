@@ -1,66 +1,40 @@
-// 卡车上的最大单元数（Maximum Units on a Truck）
+// 无重叠区间（Non-overlapping Intervals）
+// 给定一个区间的集合，找到需要移除区间的最小数量，使剩余区间互不重叠。
 
-// 问题描述
-// 请你将一些箱子装在 一辆卡车 上。给你一个二维数组 boxTypes ，其中 boxTypes[i] = [numberOfBoxesi, numberOfUnitsPerBoxi] ：
+// 注意: 可以认为区间的终点总是大于它的起点。 区间 [1,2] 和 [2,3] 的边界相互“接触”，但没有相互重叠。
 
-// numberOfBoxesi 是类型 i 的箱子的数量。
-// numberOfUnitsPerBoxi 是类型 i 每个箱子可以装载的单元数量。
-// 整数 truckSize 表示卡车上可以装载 箱子 的 最大数量 。只要箱子数量不超过 truckSize ，你就可以选择任意箱子装到卡车上。
+// 示例 1:
 
-// 返回卡车可以装载 单元 的 最大 总数。
+// 输入: [ [1,2], [2,3], [3,4], [1,3] ]
+// 输出: 1
+// 解释: 移除 [1,3] 后，剩下的区间没有重叠。
+// 示例 2:
 
-// 示例 1：
+// 输入: [ [1,2], [1,2], [1,2] ]
+// 输出: 2
+// 解释: 你需要移除两个 [1,2] 来使剩下的区间没有重叠。
+// 示例 3:
 
-// 输入：boxTypes = [[1,3],[2,2],[3,1]], truckSize = 4
-// 输出：8
-// 解释：箱子的情况如下：
+// 输入: [ [1,2], [2,3] ]
+// 输出: 0
+// 解释: 你不需要移除任何区间，因为它们已经是无重叠的了
 
-// 1 个第一类的箱子，里面含 3 个单元。
-// 2 个第二类的箱子，每个里面含 2 个单元。
-// 3 个第三类的箱子，每个里面含 1 个单元。
-// 可以选择第一类和第二类的所有箱子，以及第三类的一个箱子。
-// 单元总数 = (1 * 3) + (2 * 2) + (1 * 1) = 8
-// 示例 2：
+function fn(array) {
+  array.sort((x, y) => x[0] - y[0]);
 
-// 输入：boxTypes = [[5,10],[2,5],[4,7],[3,9]], truckSize = 10
-console.log(50 + 27 + 14);
-// 输出：91
-
-// 提示：
-
-// 1 <= boxTypes.length <= 1000
-// 1 <= numberOfBoxesi, numberOfUnitsPerBoxi <= 1000
-// 1 <= truckSize <= 106
-
-function fn(boxTypes, truckSize) {
-  let result = 0;
-  let size = 0;
-  let flag = 0;
-
-  boxTypes.sort((x, y) => y[1] - x[1]);
-  for (let i = 0; i < boxTypes.length; i++) {
-    if (boxTypes[i][0] + size <= truckSize) {
-      size += boxTypes[i][0];
-      result += boxTypes[i][0] * boxTypes[i][1];
-    } else {
-      flag = i;
-      break;
+  let count = 0;
+  for (let i = 1; i < array.length; i++) {
+    if (array[i][0] < array[i - 1][1]) {
+      count++;
     }
   }
-
-  result += (truckSize - size) * boxTypes[flag][1];
-
-  result;
-
-  return result;
+  count;
+  return count;
 }
 
-fn(
-  [
-    [5, 10],
-    [2, 5],
-    [4, 7],
-    [3, 9],
-  ],
-  10,
-);
+fn([
+  [1, 2],
+  [2, 3],
+  [3, 4],
+  [1, 3],
+]);
