@@ -6,7 +6,7 @@
  * @param {string} s - The input string.
  * @returns {boolean} - True if the string is balanced, false otherwise.
  */
-const fn = s => {
+const fn = (s) => {
   if (s.length % 2 === 1) return false; // If the string length is odd, it cannot be balanced.
   const stack = []; // Create an empty stack to keep track of opening parentheses, square brackets, and curly braces.
 

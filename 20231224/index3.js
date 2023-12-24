@@ -58,3 +58,7 @@ console.log(
     11,
   ),
 );
+
+// cat cat what do you see?
+// I  see a dog looking at me
+// dog dog what do you see?

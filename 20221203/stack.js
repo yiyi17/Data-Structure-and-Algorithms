@@ -7,34 +7,36 @@
   toString() 将栈结构的内容以字符串的形式返回。
  */
 
+// 后进先出，先进后出
+
 class Stack {
   constructor() {
-    this.items = []
+    this.items = [];
   }
 
   // 入栈
   push(item) {
-    this.items.push(item)
+    this.items.push(item);
   }
 
   // 出栈
   pop() {
-    return this.items.pop()
+    return this.items.pop();
   }
 
   // 查看栈顶
   peek() {
-    return this.items[this.items.length - 1]
+    return this.items[this.items.length - 1];
   }
 
   // 是否为空
   isEmpty() {
-    return this.items.length === 0
+    return this.items.length === 0;
   }
 
   // 栈中元素数
   size() {
-    return this.item.length
+    return this.item.length;
   }
 
   // toString 放回
@@ -42,6 +44,3 @@ class Stack {
 }
 
 // 利用栈结构的特点封装实现十进制转换为二进制的方法。
-
-
-

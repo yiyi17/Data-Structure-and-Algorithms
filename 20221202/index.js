@@ -2,7 +2,7 @@
 
 /**
  * Calculate the maximum length of consecutive unique characters in a string.
- * 
+ *
  * @param {string} str - The input string.
  * @returns {number} - The maximum length of consecutive unique characters.
  */
@@ -18,15 +18,10 @@ function maxLength(str) {
       tempStr = str[i]; // Start a new substring with the current character
     }
   }
+  obj;
 
   return Math.max(...Object.values(obj)); // Find the maximum length from the values in the object
 }
-const str = 'abdadcaadd1'
+const str = 'abdadcaadd1';
 
 console.log(maxLength(str));
-
-
-
-
-
-
