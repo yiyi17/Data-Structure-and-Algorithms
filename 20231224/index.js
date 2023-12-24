@@ -33,7 +33,7 @@ var searchInsert = function (nums, target) {
     right = n - 1,
     ans = n;
   while (left <= right) {
-    let mid = Math.floor((right + left) / 2);
+    let mid = Math.floor((right - left) / 2) + left;
     mid;
     if (target <= nums[mid]) {
       ans = mid;
@@ -55,7 +55,7 @@ var searchInsert = function (nums, target) {
   if (nums[right] < target) return right + 1;
 
   while (left <= right) {
-    mid = Math.floor((right + left) / 2);
+    mid = Math.floor((right - left) / 2) + left;
     mid;
     if (nums[mid] === target) return mid;
     if (nums[mid] < target) {
@@ -70,7 +70,10 @@ var searchInsert = function (nums, target) {
 };
 
 (nums = [1, 3, 5, 6]), (target = 7); // 4
-(nums = [1, 3, 5, 6]), (target = 3); // 1
-(nums = [1, 3, 5, 6]), (target = 4); // 2
+console.log(searchInsert(nums, target));
 
+(nums = [1, 3, 5, 6]), (target = 3); // 1
+console.log(searchInsert(nums, target));
+
+(nums = [1, 3, 5, 6]), (target = 4); // 2
 console.log(searchInsert(nums, target));
