@@ -1,33 +1,33 @@
 // https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Operators/Operator_Precedence
-let a = 2
+let a = 2;
 
-a**=3
+a **= 3;
 
-a
+a;
 
-a^=2
+a ^= 2;
 
-a
+a;
 
-a|=2
+a |= 2;
 
-a
+a;
 
-a &&= 2
-a
+a &&= 2;
+a;
 
-a||=3
+a ||= 3;
 
-a
+a;
 
-a ??= 3
+a ??= 3;
 
-a
+a;
 
-const c = (a,b=1)
+const c = (a, (b = 1));
 
-c
+c;
 
-a&=2
+a &= 2;
 
-a
+a;
