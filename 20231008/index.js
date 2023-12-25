@@ -15,23 +15,22 @@
 // stockSpanner.next(85);  // 返回 6
 
 class StockSpanner {
-  constructor(){
+  constructor() {
     this.array = [];
   }
   next(num) {
     this.array.unshift(num);
-    if(this.array.length === 1) {
+    if (this.array.length === 1) {
       return 1;
     }
-    const index = this.array.findIndex(item => num - item < 0);
-    return index
-
+    const index = this.array.findIndex((item) => num - item < 0);
+    console.log(this.array);
+    return index;
   }
 }
 
 // [100,80,60,70,60,75,85]
 // [1, 1, 1, 2, 1, 4, 6]
-
 
 // [60,70,60,80,100]
 
@@ -39,7 +38,7 @@ class StockSpanner {
 // 1-0
 // 2-0
 
-const stockSpanner = new StockSpanner()
+const stockSpanner = new StockSpanner();
 console.log(stockSpanner.next(100)); // 1
 console.log(stockSpanner.next(80)); // 1
 console.log(stockSpanner.next(60)); // 1
