@@ -29,12 +29,15 @@ const reverse = function (num, start, end) {
 
 var rotate = function (nums, k) {
   k = k % nums.length;
-
+  k;
   reverse(nums, 0, nums.length - 1);
+  nums;
   reverse(nums, 0, k - 1);
+  nums;
   reverse(nums, k, nums.length - 1);
-
+  nums;
+  return nums;
 };
 
-console.log(rotate([1, 2], 3));
+// console.log(rotate([1, 2], 3));
 console.log(rotate([1, 2, 3, 4, 5], 3));

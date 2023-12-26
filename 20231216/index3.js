@@ -16,6 +16,8 @@ function fn(height) {
   while (left < right) {
     leftMax = Math.max(height[left], leftMax);
     rightMax = Math.max(height[right], rightMax);
+    leftMax;
+    rightMax;
     if (leftMax < rightMax) {
       max += leftMax - height[left];
       left++;
@@ -29,4 +31,3 @@ function fn(height) {
 }
 
 fn([0, 1, 0, 2, 1, 0, 1, 3, 2, 1, 2, 1]);
-// 动态规划是啥？

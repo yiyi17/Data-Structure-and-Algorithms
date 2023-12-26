@@ -13,9 +13,12 @@ function generateOutput(str) {
       currentStr += char;
     } else if (char === '[') {
       stack.push({ str: currentStr, num: currentNum });
+      stack;
       currentStr = '';
       currentNum = 0;
     } else if (char === ']') {
+      stack;
+      currentStr;
       const { str, num } = stack.pop();
       currentStr = str + currentStr.repeat(num);
     }
