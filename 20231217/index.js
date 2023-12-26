@@ -24,6 +24,7 @@ function snailSort(arr) {
   // 递归
   while (i < arr[0].length) {
     result.push(arr[0][i]);
+    result;
     let m = 0;
     n = i;
     while (n > 0) {
@@ -31,8 +32,10 @@ function snailSort(arr) {
       m++;
       result.push(arr[m][n]);
     }
+    result;
     i++;
   }
+  result;
 
   let j = 1;
   while (j < arr.length) {
