@@ -9,15 +9,19 @@
 // 输入：matrix = [[1,3,5,7],[10,11,16,20],[23,30,34,60]], target = 3
 // 输出：true
 
-const searchMatrix = function (matrix, target) {
+var searchMatrix = function (matrix, target) {
   console.log(matrix, target);
 
   let leftIndex1 = 0,
     rightIndex1 = matrix.length - 1;
 
   while (leftIndex1 < rightIndex1) {
+    rightIndex1;
+    leftIndex1;
     //NOTE: 这里加 1 很关键
     let mid = Math.floor((rightIndex1 - leftIndex1 + 1) / 2) + leftIndex1;
+    console.log(mid);
+
     if (matrix[mid][0] === target) return true;
 
     if (matrix[mid][0] < target) {
@@ -45,6 +49,27 @@ const searchMatrix = function (matrix, target) {
 
   return false;
 };
+// var searchMatrix = function (matrix, target) {
+//   const m = matrix.length,
+//     n = matrix[0].length;
+//   let low = 0,
+//     high = m * n - 1;
+//   while (low <= high) {
+//     const mid = Math.floor((high - low) / 2) + low;
+//     mid;
+//     n;
+//     console.log(mid % n);
+//     const x = matrix[Math.floor(mid / n)][mid % n];
+//     if (x < target) {
+//       low = mid + 1;
+//     } else if (x > target) {
+//       high = mid - 1;
+//     } else {
+//       return true;
+//     }
+//   }
+//   return false;
+// };
 
 console.log(
   searchMatrix(
@@ -53,7 +78,7 @@ console.log(
       [10, 11, 16, 20],
       [23, 30, 34, 60],
     ],
-    12,
+    13,
   ),
 );
 
