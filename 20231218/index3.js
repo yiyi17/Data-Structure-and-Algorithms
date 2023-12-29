@@ -15,6 +15,44 @@
 // 1
 
 function minCostToConnectVillages(n, m, cost) {
+  const graph = new Array(n).fill(0).map(() => new Array(n).fill(Infinity));
+  for (const [v1, v2, c] of cost) {
+    graph[v1 - 1][v2 - 1] = c;
+    graph[v2 - 1][v1 - 1] = c;
+  }
+  const visited = new Array(n).fill(false);
+  visited[0] = true;
+
+  let totalCost = 0;
+  let count = 0;
+  while (count < n - 1) {
+    let minCost = Infinity;
+    let minIndex = -1;
+
+    for (let i = 0; i < n; i++) {
+      if (visited[i]) {
+        for (let j = 0; j < n; j++) {
+          if (!visited[j] && graph[i][j] < minCost) {
+            minCost = graph[i][j];
+            minIndex = j;
+          }
+        }
+      }
+    }
+
+    if (minIndex != -1) {
+      visited[minIndex] = true;
+      totalCost += minCost;
+      count++;
+    } else {
+      break;
+    }
+  }
+
+  return totalCost;
+}
+
+function minCostToConnectVillages(n, m, cost) {
   // 创建一个邻接矩阵来表示村庄之间的路连接情况
   const graph = new Array(n).fill(0).map(() => new Array(n).fill(Infinity));
 
