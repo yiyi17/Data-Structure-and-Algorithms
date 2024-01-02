@@ -11,7 +11,7 @@ async function countFileLines(filePath) {
       let idx = -1
       lineCount--
       do{
-        idx = buff.indexOf(10, idx+1)
+e        idx = buff.indexOf(10, idx+1)
         lineCount++
       } while(idx !== -1)
     }).on('end', () => {
