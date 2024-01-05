@@ -120,6 +120,7 @@
 - [try catch 只能捕获同步错误，捕获不到的错误有哪些](2023/20231211/index.js)
 - [unhandledrejection: 当 Promise 被 reject, 且调用 then 方法没有 reject 处理器的时候](2023/20231211/index2.js)
 - [静态 Object.create()](2023/20231221/index.js)
+- [寄生组合继承](20240105/index.js)
 
 ## 正则表达式
 
