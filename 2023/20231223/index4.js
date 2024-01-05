@@ -18,6 +18,7 @@
 var lengthOfLIS = function (nums) {
   const n = nums.length;
   const dp = new Array(n + 1).fill(1);
+  dp
   dp[0] = 1;
   let max = 1;
   for (let i = 1; i < n; i++) {
