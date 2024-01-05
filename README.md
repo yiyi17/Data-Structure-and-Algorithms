@@ -133,3 +133,4 @@
 ## nodejs
 
 - [大文件的行数读取](2023/20231229/index4.js)
+- [node module](20240105/index2.js)
