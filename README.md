@@ -1,8 +1,4 @@
-# Javascript
-
-数据结构与算法
-
-## 题目记录
+# Javascript 数据结构与算法
 
 ## 数组
 
