@@ -1,5 +1,7 @@
 module
 
+require
+
 console.log(module.paths);
 // [
 //   '/Users/lei/project/code-exercise/20240105/node_modules',
