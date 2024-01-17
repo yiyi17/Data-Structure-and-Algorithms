@@ -86,6 +86,23 @@
 - [寻找峰值](2023/20231229/index5.js)
 - [搜索旋转排序数组](20240104/index.js)
 
+
+# JS 基础知识
+
+- [this](2023/20231029/this.js)
+- [如果你将一个新的对象分配给变量，它将断开与原始对象的引用关系，这可能会更改指针地址](2023/20231211/index3.js)
+- [计算符号](2023/20231104/index.js)
+- [nextTick 和 setImmediate](2023/20231129/index.js)
+- [for await...of](2023/20231130/index.js)
+- [asyncLocalStorage](2023/20231130/index2.mjs)
+- [输出一个整数的各个位数](2023/20231209/index.js)
+- [Date.parse 的用法](2023/20231210/index2.js)
+- [获取 Map 的 value 最大, 输出 key](2023/20231210/index3.js)
+- [try catch 只能捕获同步错误，捕获不到的错误有哪些](2023/20231211/index.js)
+- [unhandledrejection: 当 Promise 被 reject, 且调用 then 方法没有 reject 处理器的时候](2023/20231211/index2.js)
+- [静态 Object.create()](2023/20231221/index.js)
+- [寄生组合继承](20240105/index.js)
+
 ## JS 手写题
 
 - [Promise 是什么](2023/20231116/index2.js)
@@ -108,32 +125,13 @@
 - [原型对象](2023/20231109/index.js)
 - [二十六进制转十进制](2023/20231229/index3.js)
 - [Proxy](20240105/index3.js)
-
-## JS 基础知识
-
-- [this](2023/20231029/this.js)
-- [如果你将一个新的对象分配给变量，它将断开与原始对象的引用关系，这可能会更改指针地址](2023/20231211/index3.js)
-- [计算符号](2023/20231104/index.js)
-- [nextTick 和 setImmediate](2023/20231129/index.js)
-- [for await...of](2023/20231130/index.js)
-- [asyncLocalStorage](2023/20231130/index2.mjs)
-- [输出一个整数的各个位数](2023/20231209/index.js)
-- [Date.parse 的用法](2023/20231210/index2.js)
-- [获取 Map 的 value 最大, 输出 key](2023/20231210/index3.js)
-- [try catch 只能捕获同步错误，捕获不到的错误有哪些](2023/20231211/index.js)
-- [unhandledrejection: 当 Promise 被 reject, 且调用 then 方法没有 reject 处理器的时候](2023/20231211/index2.js)
-- [静态 Object.create()](2023/20231221/index.js)
-- [寄生组合继承](20240105/index.js)
-
+  
 ## 正则表达式
 
 - [正则-捕获组](2023/20231029/reg.js)
 
-## 其他
 
-- [判断是否数组单词的缩写](2023/20231221/index5.js)
-
-## nodejs
+# Nodejs
 
 - [大文件的行数读取](2023/20231229/index4.js)
 - [node module](20240105/index2.js)
