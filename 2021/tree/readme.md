@@ -45,7 +45,7 @@
 - [层次遍历](./level-order.js)，又叫广度优先遍历
 - [深度优先遍历](./deep-order.js)，这个是一个demo
 - [树深](./tree-deep.js)
-- 树度
+- [树度]
 
 
 ## 附公式
