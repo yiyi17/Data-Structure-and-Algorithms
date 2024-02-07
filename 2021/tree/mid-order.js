@@ -29,4 +29,4 @@ const midOrder = (root) => {
     
 // }
 
-midOrder(root);
+midOrder(root.binaryTree);

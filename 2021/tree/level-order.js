@@ -20,7 +20,7 @@ class Queue {
   }
 }
 
-levelOrder(root)
+levelOrder(root.binaryTree)
 // 1
 // 2
 // 3

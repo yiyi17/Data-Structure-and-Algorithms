@@ -13,5 +13,5 @@ function calculateDepth(node) {
 }
 
 
-const depth = calculateDepth(root);
+const depth = calculateDepth(root.binaryTree);
 console.log("Depth of the binary tree:", depth);

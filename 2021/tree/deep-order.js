@@ -5,7 +5,8 @@
 
 const tree  =require('./tree')
 
-deepOrder(tree, [])
+deepOrder(tree.binaryTree, [])
+
 function deepOrder(root, path){
     if(!root) return;
     console.log(root.value, path);

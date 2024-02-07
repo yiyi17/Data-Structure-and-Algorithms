@@ -32,4 +32,4 @@ const postOrder = (root) => {
 //         console.log(n.val);
 //     }
 // }
-postOrder(root);
+postOrder(root.binaryTree);
