@@ -17,6 +17,7 @@ function sum(start, end) {
 
 console.log(sum(1, 3))
 
+// 生成树
 const rootList = [
   {id: 1, parent: null, text: '1'},
   {id: 11, parent: 1, text: '1-1'},
@@ -43,3 +44,33 @@ function toTree(rootList, id, list) {
   return list
 }
 console.log(toTree(rootList, null,[]));
+
+// 1-100 求和
+function sum2(n) {
+  if(n === 1) {
+    return 1
+  }
+  return n + sum2(n-1)
+}
+
+console.log(sum2(100))
+
+// 菲波那切数列
+function fib(n) {
+  if(n === 1 || n === 2) {
+    return 1
+  }
+  return fib(n-1) + fib(n-2)
+}
+console.log(fib(3));
+
+// 爬楼梯
+function climbStairs(n) {
+  if(n === 1) {
+    return 1
+  }
+  if(n === 2) {
+    return 2
+  }
+  return climbStairs(n-1) + climbStairs(n-2)
+}
