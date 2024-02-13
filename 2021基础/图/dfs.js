@@ -1,18 +1,22 @@
 const graph = require('./graph')
 
 // 深度优先遍历
-const visited = new Set()
 
-const dfs = (n) => {
-    console.log(n);
+dfsVisit(graph, 2);
 
-    visited.add(n)
-    graph[n].forEach(element => {
-        if(!visited.has(element)) {
-            dfs(element)
-        }
-    });
-
+function dfsVisit(graph, n) {
+    const visited = new Set();
+    visit(n);
+    function visit(n) {
+        console.log(n);
+        // visited 记录访问过的节点
+        visited.add(n);
+        graph[n].forEach(element => {
+            if(!visited.has(element)) {
+                // 如果没有就递归访问
+                visit(element)
+            }
+        });
+    }
 }
 
-dfs(2)
