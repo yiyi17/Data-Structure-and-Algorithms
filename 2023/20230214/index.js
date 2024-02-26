@@ -1,24 +1,19 @@
 // 最长公共子序列长度：动态规划
 
-function computeLCS(){
-  let length1 = A.length;
-  let length2 = B.length;
-  let result;
-
-  let max = 0
-  for(let i=0; i<=length1; i++){
-      for(let j=0; j<=length2; j++){
-          if(i===0 || j===0){
-              result[i][j] = 0;
-              continue;
-          }
-          if(A[i] === B[j]){
-              result[i][j] = result[i-1][j-1] + 1;
-          }else{
-              result[i][j] = max(result[i-1][j], result[i][j-1]);
-          }
-          max = Math.max(max, result[i][j]);
+function longestCommonSubsequence(text1, text2) {
+  const m = text1.length;
+  const n = text2.length;
+  const dp = new Array(m + 1).fill(0).map(() => new Array(n + 1).fill(0));
+  for (let i = 1; i <= m; i++) {
+    for (let j = 1; j <= n; j++) {
+      if (text1[i - 1] === text2[j - 1]) {
+        dp[i][j] = dp[i - 1][j - 1] + 1;
+      } else {
+        dp[i][j] = Math.max(dp[i - 1][j], dp[i][j - 1]);
       }
+    }
   }
-  return max;
+  console.log(dp);
+  return dp[m][n];
 }
+longestCommonSubsequence('abcde', 'ace'); //3
