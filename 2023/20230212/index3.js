@@ -15,7 +15,7 @@ function changeMoney(n, allMoney) {
         num,
       });
     } else {
-      // 否则不能找
+      // 否则不能找 
       // result[i] = 0;
     }
   }

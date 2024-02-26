@@ -133,6 +133,7 @@
 
 ## JS 手写题
 
+- [Promise+ 规范](20240226/index.js)
 - [Promise 是什么](2023/20231116/index2.js)
 - [Promise](2023/20231029/promise.js)
 - [nextTick](2023/20231029/nextTick.js)
