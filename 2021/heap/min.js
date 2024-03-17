@@ -23,7 +23,11 @@ class MinHeap {
   // 上移
   shiftUp(index) {
     if(index === 0) return;
+    index
     const parentIndex = this.getParentIndex(index);
+    parentIndex
+
+    console.log(this.heap[parentIndex], this.heap[index]);
     if (this.heap[parentIndex] > this.heap[index]) {
       this.swap(parentIndex, index);
       this.shiftUp(parentIndex);
@@ -65,9 +69,17 @@ class MinHeap {
 }
 
 const h = new MinHeap()
+h.insert(4)
+h.insert(0)
 h.insert(3)
 h.insert(2)
 h.insert(1)
-h.pop()
 
+h
+
+//   0        0
+// 2   3    1   3
+// 4      4 2
+
+console.log(h.peek());
 
