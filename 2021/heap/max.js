@@ -1,109 +1,70 @@
 // 最大堆
-
-// 最大堆
-class MaxHeap {
-  constructor(heap) {
-      this.heap = heap;
-      this.heapSize = heap.length;
-      this.buildMaxHeap();
-  }
-
-  // 构建最大堆
-  buildMaxHeap() {
-    console.log(this.heapSize);
-      for (let i = Math.floor(this.heapSize / 2) - 1; i >= 0; i--) {
-          i
-          this.maxHeapify(i);
+class MaxHeap{
+    constructor(heap = []){
+      this.heap = heap
+    }
+    buildMinHeap(){
+      for(let i = this.heap.length; i >= 0; i--){
+        this.insert(this.heap[i])
       }
-  }
-
-  //将以i为根节点的子树调整为最大堆
-  maxHeapify(index) {
-      let left = 2 * index + 1;
-      let right = 2 * index + 2;
-      let largest = index;
-      if (left < this.heapSize && this.heap[left] > this.heap[largest]) largest = left;
-      if (right < this.heapSize && this.heap[right] > this.heap[largest]) largest = right;
-      if (largest !== index) {
-          this.swapNum(index, largest);
-          this.maxHeapify(largest);
+    }
+    getParentIndex(i){
+      return (i - 1) >> 1
+    }
+    getLeftIndex(i){
+      return i * 2 + 1
+    }
+    getRightIndex(i){
+      return i * 2 + 2
+    }
+    swap(i1, i2){
+      let temp = this.heap[i1]
+      this.heap[i1] = this.heap[i2]
+      this.heap[i2] = temp
+    }
+    shiftUp(index){
+      // 根节点，不需要移动
+      if(index === 0) return
+      const parentIndex = this.getParentIndex(index)
+  
+      // 父节点小，就交换
+      if(this.heap[parentIndex] < this.heap[index]){
+        this.swap(parentIndex, index)
+        this.shiftUp(parentIndex)
       }
-  }
-
-  //交换i，j的值
-  swapNum(i, j) {
-      let temp = this.heap[i];
-      this.heap[i] = this.heap[j];
-      this.heap[j] = temp;
-      // [this.heap[i], this.heap[j]] = [this.heap[j], this.heap[i]];
-  }
-
-  //插入一个数
-  insert(num) {
-      this.heap.push(num);
-      this.heap.heapSize = this.heap.length;
-      let index = this.heap.heapSize - 1;
-      while (index != -1) {
-          index = this.shiftUp(index);
+    }
+  
+    shiftDown(index){
+      const leftIndex = this.getLeftIndex(index)
+      const rightIndex = this.getRightIndex(index)
+      // 左节点大
+      if(this.heap[leftIndex] > this.heap[index]){
+        this.swap(leftIndex, index)
+        this.shiftDown(leftIndex)
       }
-      console.log(this.heap);
-  }
-
-  //删除堆顶元素
-  pop() {
-      this.heap[0] = this.heap.pop();
-      this.heapSize = this.heap.length;
-      let index = 0;
-      while (1) {
-          let temp = this.shiftDown(index);
-          if (temp === index) break;
-          else index = temp;
+      // 右节点大
+      if(this.heap[rightIndex] > this.heap[index]){
+        this.swap(rightIndex, index)
+        this.shiftDown(rightIndex)
       }
+    }
+    insert(value){
+      this.heap.push(value)
+      this.shiftUp(this.heap.length - 1)
+    }
+    // 删除堆顶
+    pop(){
+      this.heap[0] = this.heap.pop()
+      this.shiftDown(0)
+    }
+    size() {
+      return this.heap.length
+    }
+    // 获取堆顶
+    peek() {
+      return this.heap[0]
+    }
   }
-
-  //堆排序
-  heapSort() {
-      while (this.heapSize > 1) {
-          this.swapNum(0, this.heapSize - 1);
-          this.heapSize -= 1;
-          let index = 0;
-          while (1) {
-              let temp = this.shiftDown(index);
-              if (temp === index) break;
-              else index = temp;
-          }
-      }
-      this.heapSize = this.heap.length;
-  }
-
-  //上浮操作 - 将当前节点与父节点进行比较，如果该节点值大于父节点值，则进行交换。
-  shiftUp(index) {
-      let parent = Math.ceil(index / 2) - 1;
-      if (this.heap[index] > this.heap[parent] && parent >= 0) {
-          this.swapNum(index, parent);
-          return parent;
-      }
-      return -1;
-  }
-
-  // 下沉操作 - 将当前节点与左右子节点进行比较，如果该节点值不是最大，则进行交换
-  shiftDown(index) {
-      let left = Math.floor(index * 2) + 1;
-      let right = left + 1;
-      let largest = index;
-      if (left < this.heapSize && this.heap[left] > this.heap[largest]) largest = left;
-      if (right < this.heapSize && this.heap[right] > this.heap[largest]) largest = right;
-      if (largest !== index) {
-          this.swapNum(index, largest);
-      }
-      return largest;
-  }
-
-  peek() {
-      return this.heap[0];
-  }
-
-}
 
 const h = new MaxHeap([1, 3, 2, 5]);
 // h.insert(1);

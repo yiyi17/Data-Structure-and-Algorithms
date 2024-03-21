@@ -1,9 +1,14 @@
 // 最小堆类
 
 class MinHeap {
-  constructor() {
+  constructor(heap=[]) {
     // 声明堆
-    this.heap = [];
+    this.heap = heap;
+  }
+  buildMinHeap(){
+    for(let i = this.heap.length; i >= 0; i--){
+      this.insert(this.heap[i])
+    }
   }
   getParentIndex(i) {
     return (i - 1) >> 1;
