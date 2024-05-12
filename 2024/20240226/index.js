@@ -4,9 +4,28 @@ const p = new Promise((resolve, reject) => {
 
 p.then(res => {
   console.log(res);
+  return 456
+}).then(res => {
+  console.log(res);
 })
 
+p.then(456).then(res => {
+  console.log(res);
+})
 
+p.then(res => {
+  return new Promise((resolve, reject) => {
+    resolve(789)
+  })
+}).then(res => {
+  console.log(res);
+}).then(res => {
+  return p.then()
+}).then(res => {
+  console.log(res);
+}).catch(err => {
+  console.log(err);
+})
 
 const PENDING = 'pending'
 const FULFILLED = 'fulfilled'
@@ -173,8 +192,17 @@ p_1.then(data => {
 
 p_1.then(data => {
   console.log(data);
+  return new MyPromise((resolve, reject) => {
+    resolve(456)
+  })
 }, err => {
   console.log(err);
+}).then(data => {
+  console.log(data);
+  return { a: 1 }
+}).then(data => {
+  console.log(data);
 })
+
 
 

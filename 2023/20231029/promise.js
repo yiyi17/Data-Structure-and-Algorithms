@@ -34,23 +34,41 @@ Promise.myAllSettled = function(p) {
     })
   })
 }
+Promise.myRace = function(p) {
+  return new Promise((resolve, reject) => {
+    Array.from(p).forEach(item => {
+      Promise.resolve(item).then(resolve, reject)
+    })
+  })
+}
 
 Promise.resolve((Promise.resolve(1))).then(res => {
   console.log(res)
 });
 
-
-
 // Promise.race
 // Promise.allSettled
 // Promise.all
 
-const requests = []
-for(let i = 0; i < 10; i++) {
-  requests.push(Math.random() > 0.2 ? Promise.resolve(i) : Promise.reject(i))
-}
+const requests = [
+  new Promise((resolve, reject) => setTimeout(resolve, 3000, 111)),
+  new Promise((resolve, reject) => setTimeout(resolve, 2000, 2222)),
+  new Promise((resolve, reject) => setTimeout(reject, 1000, 3333)),
+]
 
 requests
+
+Promise.race(requests).then(res => {
+  console.log(res);
+},(reject) => {
+  console.log(reject);
+})
+
+Promise.myRace(requests).then(res => {
+  console.log(res);
+},(reject) => {
+  console.log(reject);
+})
 
 Promise.myAll(requests).then(res => {
   console.log(res);
@@ -90,3 +108,4 @@ Promise.myAllSettled(requests).then(res => {
 },(reject) => {
   console.log(reject);
 })
+
