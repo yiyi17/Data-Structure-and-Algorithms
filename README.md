@@ -148,6 +148,7 @@
 - [Promise 是什么](2023/20231116/index2.js)
 - [Promise](2023/20231029/promise.js)
 - [nextTick](2023/20231029/nextTick.js)
+- [节流](2024/20240515/index.ts)
 
 - [深拷贝](2022/20221219/deepclone.js)
 

@@ -16,4 +16,4 @@ function fn(str) {
   return true
 }
 
-console.log(fn('abba'));
+console.log(fn('abcba'));
