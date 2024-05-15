@@ -1,80 +1,30 @@
-# pv 平台
+# React + TypeScript + Vite
 
-## 启动指引
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-### 安装依赖
+Currently, two official plugins are available:
 
-```
-yarn
-```
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-### 运行
+## Expanding the ESLint configuration
 
-```
-yarn start
-```
+If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
 
-### 构建
+- Configure the top-level `parserOptions` property like this:
 
-```
-yarn build
-```
-
-### 部署
-
-走标准 CI/CD 流程，构建产物直接可用
-
-## 开发指引
-
-### 技术栈
-
-- ant-design / pro-components
-- umijs3
-- ahooks2，主要用的 useRequest。因为存在 breaking-change，该依赖**不能**升级为 v3。
-- hox
-- 内部组件库：@fe/usc
-
-### 项目模块与结构
-
-参照路由配置（config/routes.ts），尽可能做到 url 路径和文件路径一致
-
-```
-src/page/
-├── Guide // 未使用
-│   ├── Container
-│   ├── Overview
-│   └── Question
-├── Manage // 埋点管理一级菜单
-│   ├── Audit // 审批管理
-│   ├── Authority // 权限管理
-│   ├── Demand // *需求管理*
-│   ├── Module // *模块管理*
-│   ├── Page // 页面管理
-│   └── Semantic // 语义管理
-├── Test // 测试工具一级菜单
-│   ├── Create
-│   ├── Detail
-│   ├── Form
-│   ├── List
-│   ├── Report
-│   ├── TemporaryTest
-│   └── WorkBench
-└── components
-    └── Semantic // 语义的相关重型页面组件，在多个页面中使用到
+```js
+export default {
+  // other rules...
+  parserOptions: {
+    ecmaVersion: 'latest',
+    sourceType: 'module',
+    project: ['./tsconfig.json', './tsconfig.node.json'],
+    tsconfigRootDir: __dirname,
+  },
+}
 ```
 
-### 全局配置及常用依赖
-
-- 网络请求
-  - 使用 umi-request 作为请求库，ahooks _v2_ 的 `useRequest` hooks 作为异步管理工具，配合请求库使用。
-  - 相关配置和拦截器写在 `src/init/request.ts`，其中提供了鉴权字段插入和错误通用处理逻辑，以及 mock 能力（不太使用）。
-- 状态管理
-  - 使用 `hox` 作为存储全局状态和配置的工具库。可见 `src/models/` 目录下的各文件。
-  - 简单来说就是某 hooks 在 export 时，用 `createModel()` 包一层，即可转变为单例模式，所有引入方访问的是同一个 hooks 及其状态。
-- 工具函数
-  - 在 `src/scripts/` 目录下，按能力封装了一些业务工具函数。如果有需要添加，请注意写好注释。
-    - 其中，updateLog 是更新日志的数据，格式可以参考已有数据。
-- Others
-  - lodash 函数库
-  - day.js 日期时间库
-  - classnames DOM className 工具库
+- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
+- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
+- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
